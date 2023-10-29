@@ -3,6 +3,6 @@
   tasks:
   - name: Create an S3 bucket
     s3_bucket:
-      name: "{{ wersobucket123 }}"
-      region: us-east-1
+      name: "{{ paptum_ansible }}"
+      region: us-east-2
       state: present
