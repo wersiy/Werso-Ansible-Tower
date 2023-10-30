@@ -6,7 +6,7 @@
   tasks:
   - name: Terminate,stop or reboot instances that were previously launched
     amazon.aws.ec2_instance:
-      state: absent
+      state: "{{instance_state}}"
       filters:
         tags:
           App_Name: "{{ App_Name }}"
