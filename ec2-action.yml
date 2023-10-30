@@ -5,12 +5,12 @@
 
   tasks:
   - name: Terminate,stop or reboot instances that were previously launched
-    ec2_instance:
+    amazon.aws.ec2_instance:
       region: "{{ deployment_region }}"
       state: "{{instance_state}}"
       filters:
-        tags:
-          App_Name: "{{ App_Name }}"
+        tag: App_Name:
+          - "{{App_Name}}"
     # ec2:
     #   state: "{{ instance_state }}"
     #   instance_ids: "{{ lookup('aws_ssm', '/JJTech/{{ team }}/{{ instance_ids }}', region='us-east-2') }}"
