@@ -9,7 +9,7 @@
       region: "{{ deployment_region }}"
       state: "{{ instance_state }}"
       filters:
-        instance_ids: "{{ application }}"
+        instance_ids: "{{ lookup('aws_ssm', '/JJTech/{{ team }}/{{ application }}', region='us-east-2') }}"
         # instance-state-name: running
     # tag:
     #   App_Name: "{{App_Name}}"
