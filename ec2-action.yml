@@ -8,8 +8,12 @@
     ec2_instance:
       region: "us-east-2"
       state: "{{ instance_state }}"
+      tags:
+        App_Name: "{{ App_Name }}"
+      
+      
       # filters:
-      instance_ids: "{{ lookup('aws_ssm', '/JJTech/{{ team }}/{{ application }}', region='us-east-2') }}"
+      # instance_ids: "{{ lookup('aws_ssm', '/JJTech/{{ team }}/{{ application }}', region='us-east-2') }}"
         # instance-state-name: running
     # tag:
     #   App_Name: "{{App_Name}}"
