@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: False
+
+  tasks:
+  - name: Terminate,stop or reboot instances that were previously launched
+    ec2:
+      state: "{{ instance_state }}"
+      instance_ids: "{{ lookup('aws_ssm', '/JJTech/{{ team }}/{{ instance_ids }}', region='us-east-2') }}"

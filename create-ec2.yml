@@ -6,6 +6,7 @@
   tasks:
   - name: Create EC2
     ec2_instance:
+      region: "{{ deployment_region }}"
       key_name: "{{ lookup('aws_ssm', '/JJTech/{{ team }}/keyname', region='us-east-2') }}"
       security_group: "{{ lookup('aws_ssm', '/JJTech/{{ team }}/{{ security_group }}', region='us-east-2') }}"
       image_id: "{{ lookup('aws_ssm', '/JJTech/{{ team }}/{{ ami_type }}', region='us-east-2') }}"
@@ -16,6 +17,7 @@
       network:
         assign_public_ip: true
       wait: true
+      state: "{{ resource_state }}"
       volumes:
         - device_name: /dev/xvda
           ebs:
