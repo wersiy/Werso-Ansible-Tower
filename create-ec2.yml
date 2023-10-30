@@ -6,14 +6,13 @@
   tasks:
   - name: Create EC2
     ec2_instance:
-      region: "{{ deployment_region }}"
-      key_name: "{{ lookup('aws_ssm', '/JJTech/{{ team }}/keyname', region='us-east-2') }}"
-      security_group: "{{ lookup('aws_ssm', '/JJTech/{{ team }}/{{ security_group }}', region='us-east-2') }}"
-      image_id: "{{ lookup('aws_ssm', '/JJTech/{{ team }}/{{ ami_type }}', region='us-east-2') }}"
+      region: "{{ region }}"
+      key_name: "{{ lookup('aws_ssm', '/JJTech/{{ team }}/keyname' ) }}"
+      security_group: "{{ lookup('aws_ssm', '/JJTech/{{ team }}/{{ security_group }}' ) }}"
+      image_id: "{{ lookup('aws_ssm', '/JJTech/{{ team }}/{{ ami_type }}' ) }}"
       instance_type: "{{ instance_type }}"
-      region: "{{region}}"
-      vpc_subnet_id: "{{ lookup('aws_ssm', '/JJTech/{{ team }}/{{ vpc_subnet_id }}', region='us-east-2') }}"
-      instance_role: "{{ lookup('aws_ssm', '/JJTech/{{ team }}/{{ instance_role }}', region='us-east-2') }}"
+      vpc_subnet_id: "{{ lookup('aws_ssm', '/JJTech/{{ team }}/{{ vpc_subnet_id }}' ) }}"
+      instance_role: "{{ lookup('aws_ssm', '/JJTech/{{ team }}/{{ instance_role }}' ) }}"
       network:
         assign_public_ip: true
       wait: true
