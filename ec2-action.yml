@@ -8,8 +8,8 @@
     ec2_instance:
       region: "{{ deployment_region }}"
       state: "{{ instance_state }}"
-      filters:
-        instance_ids:
+      # filters:
+      instance_ids:
           - i-0a417f9ac4bba391f
         
         # "{{ lookup('aws_ssm', '/JJTech/{{ team }}/{{ application }}', region='us-east-2') }}"
