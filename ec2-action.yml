@@ -6,7 +6,7 @@
   tasks:
   - name: Terminate,stop or reboot instances that were previously launched
     ec2_instance:
-      # region: "{{ deployment_region }}"
+      region: "us-east-2"
       state: "{{ instance_state }}"
       # filters:
       instance_ids:
