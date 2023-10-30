@@ -23,22 +23,16 @@
           ebs:
             volume_type: gp2
             volume_size: "{{ root_volume_size }}"
-            delete_on_termination: true
-            encrypted: true
-      name: "{{ instance_name }}"
-      tags:
-        created_by: "{{ created_by }}"
-        Owner: "{{ Owner }}"
-        App_Name: "{{ App_Name }}"
-        Cost_Center: "{{ Cost_Center }}"
-        Business_Unit: "{{ Business_Unit }}"
-      user_data: |
-        #!/bin/bash
         yum update -y
         yum install httpd -y
         service httpd start
         chkconfig httpd on
-        echo "<html><body><h1>Hello JJTech Team</h1></body></html>" > /var/www/html/index.html
+        yum install wget
+        wget https://github.com/awanmbandi/aws-real-world-projects/raw/web-appplications-src-code/medlife-health-care.zip -P ~/
+        yum install unzip -y 
+        unzip ~/medlife-health-care.zip
+        rm -f /var/www/html/index.html 
+        cp -rf medlife-master/* /var/www/html/
 
 #  - debug:
 #      msg: ec2_instance
