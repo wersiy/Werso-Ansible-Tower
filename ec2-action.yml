@@ -11,12 +11,3 @@
       tags:
         App_Name: "{{ App_Name }}"
       
-      
-      # filters:
-      # instance_ids: "{{ lookup('aws_ssm', '/JJTech/{{ team }}/{{ application }}', region='us-east-2') }}"
-        # instance-state-name: running
-    # tag:
-    #   App_Name: "{{App_Name}}"
-    # ec2:
-    #   state: "{{ instance_state }}"
-    #   instance_ids: "{{ lookup('aws_ssm', '/JJTech/{{ team }}/{{ instance_ids }}', region='us-east-2') }}"
