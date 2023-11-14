@@ -1,6 +1,6 @@
 ---
-- hosts: localhost
-  connection: local
+- hosts: webservers
+#  connection: local
   become: true
   roles:
         - uninstall_role
