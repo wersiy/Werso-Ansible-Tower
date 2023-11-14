@@ -1,0 +1,14 @@
+---
+# tasks file for nginx_role
+  - name: enable nginx1 in amazon-linux-extras
+    shell: "amazon-linux-extras enable nginx1"
+  - name: install nginx using yum package manager
+    yum:
+      name: nginx
+      state: latest
+  - name: start nginx service
+    service:
+       name: nginx
+       state: started
+       enabled: true
+##  become: yes
