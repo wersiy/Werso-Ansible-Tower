@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: False
+
+  tasks:
+  - name: Terminate,stop or reboot instances that were previously launched
+    ec2_instance:
+      region: "us-east-2"
+      state: "{{ instance_state }}"
+      tags:
+        App_Name: "{{ App_Name }}"
+      
